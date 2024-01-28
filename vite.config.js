@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { terser } from 'rollup-plugin-terser';
 
 export default defineConfig({
     plugins: [
@@ -8,4 +9,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        sourcemap: false,
+        // Configure le plugin Terser pour la minification
+        rollupOptions: {
+          plugins: [terser()],
+        },
+    },
 });

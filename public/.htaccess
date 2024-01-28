@@ -18,4 +18,6 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/javascript application/x-javascript application/json
 </IfModule>

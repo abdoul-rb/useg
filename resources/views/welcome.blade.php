@@ -30,7 +30,7 @@
                         <div class="flex-1 w-full sm:max-w-2xl xl:max-w-xl">
                             <div class="relative">
                                 <img alt="Élèves" src="https://images.unsplash.com/photo-1548102268-3d7dc56b01e1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFmcmljYW4lMjBzdHVkZW50fGVufDB8fDB8fHww"
-                                    width="490" height="284" decoding="async" data-nimg="1"
+                                    width="390" height="280" decoding="async" data-nimg="1"
                                     class="rounded-lg w-full object-cover" loading="lazy" style="color:transparent">
                                 <button aria-label="Video player button" class="absolute w-14 h-10 rounded-lg inset-0 m-auto duration-150 bg-gray-800 hover:bg-gray-700 ring-offset-2 focus:ring text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 m-auto">
@@ -49,15 +49,15 @@
                 <div class="lg:col-span-7">
                     <div class="grid grid-cols-12 gap-2 sm:gap-6 items-center lg:-translate-x-10">
                         <div class="col-span-4">
-                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80" alt="Image Description">
+                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80" width="200px" height="200" alt="Image Description">
                         </div>
             
                         <div class="col-span-3">
-                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description">
+                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" width="200px" height="360" alt="Image Description">
                         </div>
             
                         <div class="col-span-5">
-                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1600194992440-50b26e0a0309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description">
+                            <img class="rounded-xl" src="https://images.unsplash.com/photo-1600194992440-50b26e0a0309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" width="200px" height="430" alt="Image Description">
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                         </p>
                     </div>
 
-                    <div class="mt-2 md:mt-0 text-cyan-500 text-sm font-semibold tracking-wide">
+                    <div class="mt-2 md:mt-0 text-gray-900 text-sm font-semibold tracking-wide">
                         <a href="{{ route('home.events') }}" class="hover:translate-x-4 transition duration-150 ease-out">
                             Voir tous les événements &rarr;
                         </a>
@@ -231,7 +231,9 @@
                             <li>
                                 <div class="space-y-2 sm:max-w-sm">
                                     <a href="#">
-                                        <img src="{{ $event->featured_image }}" class="rounded-lg w-full h-56 object-cover" alt="{{ $event->title }}">
+                                        <picture>
+                                            <img src="{{ $event->featured_image }}" class="rounded-lg w-full h-56 object-cover" alt="{{ $event->title }}" loading="lazy" width="280px" height="300px">
+                                        </picture>
                                     </a>
                                     <div class="pt-2 text-sm flex items-center justify-between">
                                         <span class=" text-blue-600 font-semibold">
@@ -297,7 +299,7 @@
                             </div>
 
                             <button role="button" class="block w-full text-white bg-gray-800 focus:ring shadow px-4 py-2.5 font-medium text-sm text-center duration-150 rounded-lg">
-                                Donner maintenant
+                                Comming soon
                             </button>
                         </div>
                     </div>
