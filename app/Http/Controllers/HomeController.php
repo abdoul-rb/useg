@@ -5,33 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Services\EventService;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $baseURL = env('STRAPI_API_URL');
-        $response = Http::get("$baseURL/events?populate=*");
-
-        $events = $response->json()['data'];
-
-       /*  $eventService = new EventService();
-        $events = $eventService->getPaginatedEvents(3); */
+        $events = $this->getEvents(3);
 
         return view('welcome', compact('events'));
     }
 
     public function events()
     {
-        $baseURL = env('STRAPI_API_URL');
-        $response = Http::get("$baseURL/events?populate=*");
-
-        $events = $response->json()['data'];
-
-        /*  $eventService = new EventService();
-        $events = $eventService->getPaginatedEvents(20); */
+        $events = $this->getEvents(10);
 
         return view('events.index', compact('events'));
+    }
+
+    private function getEvents(int $perPage): LengthAwarePaginator
+    {
+        $eventService = new EventService();
+        $events = $eventService->getPaginatedEvents($perPage);
+
+        return $events;
     }
 }

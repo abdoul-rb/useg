@@ -232,21 +232,21 @@
                             <li>
                                 <div class="space-y-2 sm:max-w-sm">
                                     <a href="#">
-                                        <img src="https://images.unsplash.com/photo-1520254553641-2eed4cf2ef26?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFmcmljYW5zfGVufDB8fDB8fHww" class="rounded-lg w-full" alt="Introduction to computer science">
+                                        <img src="{{ $event->featured_image }}" class="rounded-lg w-full h-56 object-cover" alt="{{ $event->title }}">
                                     </a>
                                     <div class="pt-2 text-sm flex items-center justify-between">
                                         <span class=" text-blue-600 font-semibold">
-                                            {{ $event['attributes']['type']['data']['attributes']['Nom'] }}
+                                            {{ $event->title }}
                                         </span>
-                                        <span class="text-xs text-gray-700 font-semibold">{{ formatDate($event['attributes']['Date']) }}</span>
+                                        <span class="text-xs text-gray-700 font-semibold">{{ formatDate($event->date) }}</span>
                                     </div>
                                     <h3 class="block text-gray-800 text-lg font-medium">
                                         <a href="#">
-                                            {{ $event['attributes']['Titre'] }}
+                                            {{ $event->title }}
                                         </a>
                                     </h3>
                                     <p class="leading-5 text-slate-700">
-                                        {{ truncate($event['attributes']['Description'], 100) }}
+                                        {{ truncate($event->description, 100) }}
                                     </p>
                                 </div>
                             </li>
