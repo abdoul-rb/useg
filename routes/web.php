@@ -29,7 +29,9 @@ Route::namespace('App\Http\Controllers\Dashboard')->middleware(['auth'])->group(
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
     # Events
-    Route::as('dashboard')->resource('events', 'EventController')->except('show');
+    Route::prefix('dashboard')->group(function () {
+        Route::as('dashboard')->resource('events', 'EventController')->except('show');
+    });
 
     # Profile
     Route::prefix('profile')->as('admin.profile.')->group(function () {

@@ -73,7 +73,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('dashboard.formations.edit', compact('event'));
+        return view('dashboard.events.edit', compact('event'));
     }
 
     /**
@@ -95,7 +95,7 @@ class EventController extends Controller
             $image = $image->store('events', 'public');
         }
 
-        $event->create([
+        $event->update([
             'title' => $request->title,
             'description' => $request->description,
             'date' => $request->date,

@@ -36,7 +36,7 @@ class Event extends Model
         });
     }
 
-    public function getFeaturedImageAttribue()
+    public function getFeaturedImage()
     {
         return str_starts_with($this->featured_image, 'http') 
             ? $this->featured_image 

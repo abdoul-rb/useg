@@ -73,7 +73,7 @@
                                         <td class="h-px w-px whitespace-nowrap align-top">
                                             <a class="block p-6" href="#">
                                                 <div class="flex items-center gap-x-4">
-                                                    <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-lg object-cover" src="{{ $event->featured_image }}" alt="{{ $event->title }}">
+                                                    <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-lg object-cover" src="{{ $event->getFeaturedImage() }}" alt="{{ $event->title }}">
                                                     <div>
                                                         <span class="block text-sm font-semibold text-gray-800">
                                                             {{ $event->title }}
@@ -126,7 +126,6 @@
                                                                     @csrf
                                                                     @method('DELETE')
 
-                                                                    <input type="hidden" name="_token" value="JFFe9BdZO8IHZGrPnM0sjFMq0pErKxhbUtzQq79F" autocomplete="off">                                                            <input type="hidden" name="_method" value="DELETE">
                                                                     <button type="submit" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
                                                                         Supprimer
                                                                     </button>
