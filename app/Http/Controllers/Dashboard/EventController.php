@@ -25,7 +25,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('dashboard.events.create');
+        $event = new Event();
+
+        return view('dashboard.events.create', compact('event'));
     }
 
     /**
