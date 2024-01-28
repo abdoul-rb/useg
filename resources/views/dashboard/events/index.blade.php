@@ -68,38 +68,37 @@
                             </thead>
         
                             <tbody class="divide-y divide-gray-200">
-                                <tr class="bg-white hover:bg-gray-50">
+                                @foreach ($events as $event)
+                                    <tr class="bg-white hover:bg-gray-50">
                                         <td class="h-px w-px whitespace-nowrap align-top">
                                             <a class="block p-6" href="#">
                                                 <div class="flex items-center gap-x-4">
-                                                    <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-lg object-cover" src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?w=800&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8am9ic3xlbnwwfHwwfHx8MA%3D%3D" alt="Bannière de la formation">
+                                                    <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-lg object-cover" src="{{ $event->featured_image }}" alt="{{ $event->title }}">
                                                     <div>
                                                         <span class="block text-sm font-semibold text-gray-800">
-                                                            Technique de recherche d'emploi
+                                                            {{ $event->title }}
                                                         </span>
                                                     </div>
                                                 </div>
                                             </a>
                                         </td>
-        
-                                        <td class="h-px w-40 min-w-[10rem] whitespace-nowrap align-top">
-                                            <a class="p-6 flex items-center" href="#">
-                                                <span class="block text-sm font-medium text-gray-500">
-                                                    Grand événement de meeting
-                                                </span>
-                                            </a>
+            
+                                        <td class="h-px w-40 min-w-[10rem] whitespace-nowrap align-center">
+                                            <span class="p-6 flex items-center text-sm font-medium text-gray-500">
+                                                {{ truncate($event->description, 50) }}
+                                            </span>
                                         </td>
-        
+            
                                         <td class="h-px w-px whitespace-nowrap align-center">
                                             <a class="block p-6" href="#">
                                                 <div class="grow">
-                                                    <time datetime="20/01/2024 12:51" class="block text-sm text-gray-500">
-                                                        20/01/2024 12:51
+                                                    <time datetime="{{ formatDate($event->date) }}" class="block text-sm text-gray-500">
+                                                        {{ formatDate($event->date) }}
                                                     </time>
                                                 </div>
                                             </a>
                                         </td>
-        
+            
                                         <td class="h-px w-px whitespace-nowrap">
                                             <div class="px-6 py-2" x-data="{ dropdownOpen: false }" @keydown.escape.stop="dropdownOpen = false; focusButton()" @click.away="dropdownOpen = false">
                                                 <div class="relative inline-block text-left">
@@ -118,12 +117,15 @@
                                                                 <span class="block py-2 px-3 text-xs font-medium uppercase text-gray-400">
                                                                     Actions
                                                                 </span>
-                                                                <a href="#" class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
+                                                                <a href="{{ route('dashboard.events.edit', $event) }}" class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
                                                                     Modifier
                                                                 </a>
                                                             </div>
                                                             <div class="first:pt-0 last:pb-0">
-                                                                <form action="#" method="POST">
+                                                                <form action="{{ route('dashboard.events.destroy', $event) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+
                                                                     <input type="hidden" name="_token" value="JFFe9BdZO8IHZGrPnM0sjFMq0pErKxhbUtzQq79F" autocomplete="off">                                                            <input type="hidden" name="_method" value="DELETE">
                                                                     <button type="submit" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500">
                                                                         Supprimer
@@ -136,14 +138,15 @@
                                             </div>
                                         </td>
                                     </tr>
-                                                    </tbody>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
         
-                                    <div class="mt-6">
-                            
-                        </div>
-                            </div>
+                    <div class="mt-6">
+                        <!-- Paginate --> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>

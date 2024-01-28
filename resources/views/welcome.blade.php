@@ -228,7 +228,6 @@
                 <div class="mt-12">
                     <ul class="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($events as $event)
-                            {{-- @dump(env('STRAPI_BASE_URL') . $event['attributes']['Image']['data']['attributes']['url']) --}}
                             <li>
                                 <div class="space-y-2 sm:max-w-sm">
                                     <a href="#">
