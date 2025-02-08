@@ -24,7 +24,7 @@
             <div class="bg-gray-900 flex-1 md:py-0 md:block md:static md:z-0 hidden">
                 <ul class="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:font-medium">
                     <li class="text-gray-200 hover:text-sky-500 duration-150 font-semibold tracking-wide">
-                        <a class="block text-sm" href="{{ route('home.events') }}">Évènements</a>
+                        <a class="block text-sm" href="{{ route('events.index') }}">Évènements</a>
                     </li>
 
                     <li class="text-gray-200 hover:text-sky-500 duration-150 font-semibold">
@@ -52,7 +52,7 @@
             <div x-show="openDropdown" class="bg-gray-900 flex-1 md:py-0 md:block md:static md:z-0 absolute z-20 inset-x-0 px-10 py-6 w-full">
                 <ul class="justify-end items-center space-y-4 md:flex md:space-x-6 md:space-y-0 md:font-medium">
                     <li class="text-gray-200 hover:text-sky-500">
-                        <a class="block text-sm" href="{{ route('home.events') }}">Évènements</a>
+                        <a class="block text-sm" href="{{ route('events.index') }}">Évènements</a>
                     </li>
                     <li class="text-gray-200 hover:text-sky-500">
                         <a class="block text-sm" href="/#about-us">À propos de nous</a>

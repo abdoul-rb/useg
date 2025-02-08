@@ -15,7 +15,7 @@ class Event extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'date' => 'datetime', 
+        'date' => 'datetime',
     ];
 
     public function getRouteKeyName()
@@ -38,8 +38,8 @@ class Event extends Model
 
     public function getFeaturedImage()
     {
-        return str_starts_with($this->featured_image, 'http') 
-            ? $this->featured_image 
+        return str_starts_with($this->featured_image, 'http')
+            ? $this->featured_image
             : Storage::disk('public')->url($this->featured_image);
     }
 

@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Services\EventService;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(EventService $eventService)
     {
-        $eventService = new EventService();
         $events = $eventService->getPaginatedEvents();
 
         return view('dashboard.events.index', compact('events'));
@@ -42,7 +42,7 @@ class EventController extends Controller
             'featured_image' => ['nullable', 'image', 'max:4000'],
         ]);
 
-        /** @var Illuminate\Http\UploadedFile|null $image */
+        /** @var UploadedFile|null $image */
         $image = $request->featured_image;
 
         if ($image !== null && !$image->getError()) {
@@ -60,14 +60,6 @@ class EventController extends Controller
             'success',
             'La event a été créé avec succès'
         );
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Event $event)
-    {
-        //
     }
 
     /**
@@ -90,7 +82,7 @@ class EventController extends Controller
             'featured_image' => ['nullable', 'image', 'max:4000'],
         ]);
 
-        /** @var Illuminate\Http\UploadedFile|null $image */
+        /** @var UploadedFile|null $image */
         $image = $request->featured_image;
 
         if ($image !== null && !$image->getError()) {
@@ -117,7 +109,7 @@ class EventController extends Controller
     {
         $event->delete();
 
-        return redirect()->route('admin.formations.index')->with(
+        return redirect()->route('dashboard.events.index')->with(
             'success',
             'Le event a été supprimé avec succès'
         );

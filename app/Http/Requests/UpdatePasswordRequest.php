@@ -25,7 +25,7 @@ class UpdatePasswordRequest extends FormRequest
         return [
             'current_password' => ['required', new CurrentPassword()],
             'password' => 'required|string|min:4|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
         ];
     }
 

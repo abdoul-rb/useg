@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
-Route::get('evenements', 'App\Http\Controllers\HomeController@events')->name('home.events');
+
+Route::get('evenements', [EventController::class, 'index'])->name('events.index');
+Route::get('evenements/{event}', [EventController::class, 'show'])->name('events.show');
 
 Route::prefix('auth')->as('auth.')->group(function () {
     Route::view('login', 'auth.login')->name('login.index');
@@ -25,15 +28,15 @@ Route::prefix('auth')->as('auth.')->group(function () {
 });
 
 Route::namespace('App\Http\Controllers\Dashboard')->middleware(['auth'])->group(function () {
-    # Home
+    // Home
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
-    # Events
+    // Events
     Route::prefix('dashboard')->group(function () {
         Route::as('dashboard')->resource('events', 'EventController')->except('show');
     });
 
-    # Profile
+    // Profile
     Route::prefix('profile')->as('admin.profile.')->group(function () {
         Route::get('', 'ProfileController@index')->name('index');
         Route::patch('', 'ProfileController@update')->name('update');

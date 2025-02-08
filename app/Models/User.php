@@ -23,7 +23,7 @@ class User extends Authenticatable
         'lastname',
         'email',
         'password',
-        'avatar'
+        'avatar',
     ];
 
     /**
@@ -52,10 +52,6 @@ class User extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
-    /**
-     * 
-     * @return HasMany 
-     */
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);

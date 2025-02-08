@@ -4,12 +4,12 @@ define('ELLIPSIS_LENGTH', 3);
 
 use Carbon\Carbon;
 
-if (!function_exists('truncate')) {
+if (! function_exists('truncate')) {
     function truncate(?string $text = null, int $limit = 100): ?string
     {
         if (mb_strlen($text) > $limit) {
             $truncatedText = mb_substr($text, 0, $limit - ELLIPSIS_LENGTH) . ' ...';
-            
+
             return $truncatedText;
         }
 
@@ -17,7 +17,7 @@ if (!function_exists('truncate')) {
     }
 }
 
-if (!function_exists('formatDate')) {
+if (! function_exists('formatDate')) {
     function formatDate(?string $date = null)
     {
         // Convertir la date en objet Carbon
@@ -27,4 +27,3 @@ if (!function_exists('formatDate')) {
         return $formattedDate;
     }
 }
-

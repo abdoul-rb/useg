@@ -219,7 +219,7 @@
                     </div>
 
                     <div class="mt-2 md:mt-0 text-gray-900 text-sm font-semibold tracking-wide">
-                        <a href="{{ route('home.events') }}" class="hover:translate-x-4 transition duration-150 ease-out">
+                        <a href="{{ route('events.index') }}" class="hover:translate-x-4 transition duration-150 ease-out">
                             Voir tous les événements &rarr;
                         </a>
                     </div>
