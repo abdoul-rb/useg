@@ -29,7 +29,7 @@ class ProfileController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect()->route('admin.profile.index')->with(
+        return redirect()->route('dashboard.profile.index')->with(
             'success',
             'Le profil a été mis à jour avec succès'
         );

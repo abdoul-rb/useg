@@ -3,20 +3,12 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('evenements', [EventController::class, 'index'])->name('events.index');
 Route::get('evenements/{event}', [EventController::class, 'show'])->name('events.show');
@@ -27,20 +19,18 @@ Route::prefix('auth')->as('auth.')->group(function () {
     Route::post('logout', LogoutController::class)->name('logout');
 });
 
-Route::namespace('App\Http\Controllers\Dashboard')->middleware(['auth'])->group(function () {
+Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
     // Home
-    Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
+    Route::get('', [DashboardController::class, 'index'])->name('index');
 
     // Events
-    Route::prefix('dashboard')->group(function () {
-        Route::as('dashboard')->resource('events', 'EventController')->except('show');
-    });
+    Route::resource('events', EventController::class)->except('show');
 
     // Profile
-    Route::prefix('profile')->as('admin.profile.')->group(function () {
-        Route::get('', 'ProfileController@index')->name('index');
-        Route::patch('', 'ProfileController@update')->name('update');
-        Route::patch('update-password', 'ProfileController@updatePassword')->name('update-password');
-        Route::delete('delete-account', 'ProfileController@deleteAccount')->name('delete-account');
+    Route::prefix('profile')->as('profile.')->group(function () {
+        Route::get('', [ProfileController::class, 'index'])->name('index');
+        Route::patch('', [ProfileController::class, 'update'])->name('update');
+        Route::patch('update-password', [ProfileController::class, 'updatePassword'])->name('update-password');
+        Route::delete('delete-account', [ProfileController::class, 'deleteAccount'])->name('delete-account');
     });
 });

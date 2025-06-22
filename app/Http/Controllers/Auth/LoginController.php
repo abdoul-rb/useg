@@ -27,6 +27,6 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.profile.index'));
+        return redirect()->intended(route('dashboard.profile.index'));
     }
 }
