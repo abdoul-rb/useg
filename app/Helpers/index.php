@@ -22,7 +22,7 @@ if (! function_exists('formatDate')) {
     {
         // Convertir la date en objet Carbon
         $carbonDate = Carbon::parse($date);
-        $formattedDate = $carbonDate->isoFormat('ddd D MMM, HH[h]mm');
+        $formattedDate = $carbonDate->isoFormat('D MMM YYYY, HH[h]mm');
 
         return $formattedDate;
     }
