@@ -1,7 +1,20 @@
 <section class="py-20 bg-white" id="about-us">
     <div class="container mx-auto px-4">
         <div class="flex flex-col lg:flex-row items-center">
-            <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+            <div class="lg:w-1/2 relative">
+                <div class="bg-blue-100 rounded-2xl p-6 shadow-xl">
+                    <img src="{{ asset('imgs/pexels-saeed.jpg') }}" alt="Jeune fille élève"
+                        class="rounded-xl object-cover w-full">
+                </div>
+                <div class="absolute -bottom-8 -left-8 bg-yellow-400 p-6 rounded-xl shadow-lg hidden md:block floating">
+                    <div class="text-center">
+                        <p class="text-4xl font-bold text-blue-800">12+</p>
+                        <p class="text-blue-800 font-medium">Années d'expérience</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pl-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">Qui sommes-nous ?</h2>
                 <p class="text-gray-700 mb-6">
                     L'Union Scolaire et Estudiantine de Guinée (USEG) est une organisation
@@ -48,19 +61,6 @@
                         <p class="text-gray-700">
                             Adapter les programmes éducatifs aux réalités linguistiques et culturelles locales
                         </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:w-1/2 relative">
-                <div class="bg-blue-100 rounded-2xl p-6 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-                        alt="Étudiants guinéens" class="rounded-xl w-full">
-                </div>
-                <div class="absolute -bottom-8 -left-8 bg-yellow-400 p-6 rounded-xl shadow-lg hidden md:block floating">
-                    <div class="text-center">
-                        <p class="text-4xl font-bold text-blue-800">12+</p>
-                        <p class="text-blue-800 font-medium">Années d'expérience</p>
                     </div>
                 </div>
             </div>

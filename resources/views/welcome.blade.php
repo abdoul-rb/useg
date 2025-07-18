@@ -34,11 +34,10 @@
 
                         <div class="flex-1 w-full sm:max-w-2xl xl:max-w-xl">
                             <div class="relative">
-                                <img alt="Élèves"
-                                    src="https://images.unsplash.com/photo-1548102268-3d7dc56b01e1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFmcmljYW4lMjBzdHVkZW50fGVufDB8fDB8fHww"
-                                    width="390" height="280" decoding="async" data-nimg="1"
-                                    class="rounded-lg w-full object-cover" loading="lazy" style="color:transparent">
-                                <button aria-label="Video player button"
+                                <img src="{{ asset('imgs/pretty-girl-student.jpg') }}" width="390" height="280"
+                                    decoding="async" data-nimg="1" class="rounded-lg w-full object-cover" loading="lazy"
+                                    alt="Jeune fille élève">
+                                {{-- <button aria-label="Video player button"
                                     class="absolute w-14 h-10 rounded-lg inset-0 m-auto duration-150 bg-gray-800 hover:bg-gray-700 ring-offset-2 focus:ring text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                         class="w-6 h-6 m-auto">
@@ -46,7 +45,7 @@
                                             d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z">
                                         </path>
                                     </svg>
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </div>
@@ -204,8 +203,7 @@
                     </div>
 
                     <div class="mt-2 md:mt-0 text-gray-900 text-sm font-semibold tracking-wide">
-                        <a href="{{ route('events.index') }}"
-                            class="hover:translate-x-4 transition duration-150 ease-out">
+                        <a href="{{ route('events.index') }}" class="hover:translate-x-4 transition duration-150 ease-out">
                             Voir tous les événements &rarr;
                         </a>
                     </div>
